@@ -66,12 +66,20 @@ for edge in target_vertex.out_edges():
 
 
 
+names = [vprop_name_subgraph[vertex].lower() for vertex in subgraph.vertices()]
 
 
-graph_draw(
-	subgraph, 
-	vertex_text=vprop_name_subgraph, 
-	vertex_text_position=0,
-	vertex_font_size=10, 
-	output_size=(1000, 1000), 
-	output="graph.png")
+
+from kmeans import cluster_vec
+
+
+cluster_vec(names, 5)
+
+
+# graph_draw(
+# 	subgraph, 
+# 	vertex_text=vprop_name_subgraph, 
+# 	vertex_text_position=0,
+# 	vertex_font_size=10, 
+# 	output_size=(1000, 1000), 
+# 	output="graph.png")

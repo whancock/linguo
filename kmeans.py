@@ -11,13 +11,13 @@ model = Word2Vec.load_word2vec_format('./models/text8.model.bin', binary=True)
 
 def cluster_vec(words, num_clusters=2):
 
+
+	found_words = [word.lower() for word in list(words) if word.lower() in model.vocab]
+
+
 	kmeans_clustering = KMeans( n_clusters = num_clusters )
-	idx = kmeans_clustering.fit_predict( model[list(words)] )
-
-	print(words)
-	print(idx)
+	idx = kmeans_clustering.fit_predict( model[found_words] )
 
 
-
-
-cluster_vec(['horse', 'pig', 'dog', 'cat', 'mouse', 'moose'])
+	results = zip(idx, words)
+	print(sorted(results))

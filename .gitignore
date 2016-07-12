@@ -1,3 +1,4 @@
 coca-ngrams/
 corpus/
 models/
+__pycache__/
